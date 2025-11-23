@@ -10,7 +10,7 @@ export default function AppHeader() {
           Clima e Mare
         </h1>
         <h2 className="text-lg sm:text-xl font-semibold text-gray-700 mt-2">
-          Previsioni meteo in tempo reale
+          Condizioni meteoreologiche in tempo reale
         </h2>
       </div>
     </header>
