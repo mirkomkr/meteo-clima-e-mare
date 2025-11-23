@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* ——— Palette personalizzata & Font ——— */
+:root {
+  --color-text: #1e1606;
+  --color-bg: #fcf9f2;
+  --color-primary: #d7a641;
+  --color-primary-hover: #c29238;
+  --color-secondary: #8fe7c6;
+  --color-secondary-hover: #7cd3b4;
+  --color-accent: #b8fd42;
+  --color-accent-hover: #a0e63a;
+  --color-info: #61c7dd;
+
+  --font-primary: 'Noto Sans Carian', Arial, Helvetica, sans-serif;
+  --font-size-base: 1rem; /* 16px */
+  --type-scale: 1.333;
+}
+
+/* ——— Reset accessibilità base ——— */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* === Typography System: Perfect Fourth 1.333 === */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-text, #111);
+}
+
+/* Type scale (approximate steps for perfect fourth) */
+.text-xs { font-size: calc(var(--font-size-base) / var(--type-scale)); }
+.text-sm { font-size: var(--font-size-base); }
+.text-md { font-size: calc(var(--font-size-base) * var(--type-scale)); }
+.text-lg { font-size: calc(var(--font-size-base) * var(--type-scale) * var(--type-scale)); }
+.text-xl { font-size: calc(var(--font-size-base) * var(--type-scale) * var(--type-scale) * var(--type-scale)); }
+.text-2xl { font-size: calc(var(--font-size-base) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale)); }
+.text-3xl { font-size: calc(var(--font-size-base) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale) * var(--type-scale)); }
+
+/* Optional weight utilities */
+.font-light { font-weight: 300; }
+.font-regular { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-bold { font-weight: 700; }
+
+/* Headings spacing & rhythm */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+/* ——— Animazioni ——— */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
