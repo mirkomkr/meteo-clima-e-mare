@@ -14,7 +14,7 @@ export default function AppFooter() {
         {/* Icone social */}
         <div className="flex gap-4 mt-3">
           <a
-            href="https://github.com/mirkomkr"
+            href="https://github.com/mirkomkr/meteo-clima-e-mare"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visita il mio GitHub"
