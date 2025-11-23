@@ -44,7 +44,7 @@ export default function TerrestrialWeatherCard({ terrestrialData }) {
         {/* Uniformità: flex justify-between items-center w-full text-sm sm:text-base */}
         <div className="flex justify-between items-center w-full text-sm sm:text-base">
           <span>Punto dello Zero (Isoterma 0°C)</span>
-          {formatAltitude(zeroCHight)}
+          <span className="text-right">{formatAltitude(zeroCHight)}</span>
         </div>
         
         {/* Temperatura */}
