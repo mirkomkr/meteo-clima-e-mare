@@ -16,7 +16,7 @@ export default function TerrestrialWeatherCard({ terrestrialData }) {
   
   // Funzione per formattare l'altezza in metri o mostrare stato
   const formatAltitude = (value) => {
-      if (value == null || value === 0) return "A terra o non rilevato";
+      if (value == null || value === 0) return "Non rilevato";
       return `${Math.round(value)} m`;
   };
 
