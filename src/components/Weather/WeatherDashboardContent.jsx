@@ -27,6 +27,8 @@ const hasMarineData =
   );
 
   return (
+    // Il layout è già uniforme: usa flex-col su mobile, flex-row su desktop,
+    // gap tra le schede, e centraggio del contenuto.
     <div className="flex flex-col md:flex-row flex-wrap gap-6 justify-center items-start p-6">
       {general && <GeneralWeatherCard weatherData={general} />}
       {terrestrial && <TerrestrialWeatherCard terrestrialData={terrestrial} />}
