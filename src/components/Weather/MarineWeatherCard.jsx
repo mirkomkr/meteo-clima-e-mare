@@ -24,10 +24,15 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
   const windDirTerrestrial = terrestrialData?.current?.wind_direction_10m ?? null;
   const windGustTerrestrial = terrestrialData?.current?.wind_gusts_10m ?? null;
 
-  const windKnots =
-    windSpeedTerrestrial != null ? `${kmhToKnots(windSpeedTerrestrial)} kn` : "-";
-  const gustKnots =
-    windGustTerrestrial != null ? `${kmhToKnots(windGustTerrestrial)} kn` : "-";
+  // Calcolo e formattazione per mostrare km/h e kn
+  const windDisplay =
+    windSpeedTerrestrial != null
+      ? `${windSpeedTerrestrial} km/h (${kmhToKnots(windSpeedTerrestrial)} kn)`
+      : "-";
+  const gustDisplay =
+    windGustTerrestrial != null
+      ? `${windGustTerrestrial} km/h (${kmhToKnots(windGustTerrestrial)} kn)`
+      : "-";
 
   return (
     <div className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-xl shadow-md p-6 w-full max-w-md mx-auto">
@@ -40,7 +45,8 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
         {/* Vento terrestre */}
         <div className="flex justify-between items-center">
           <span>Velocità vento</span>
-          <span>{windKnots}</span>
+          {/* Valore aggiornato */}
+          <span>{windDisplay}</span>
         </div>
         <div className="flex justify-between items-center">
           <span>Direzione vento</span>
@@ -50,7 +56,8 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
         </div>
         <div className="flex justify-between items-center">
           <span>Raffica vento</span>
-          <span>{gustKnots}</span>
+          {/* Valore aggiornato */}
+          <span>{gustDisplay}</span>
         </div>
 
         {/* Onde */}

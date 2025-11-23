@@ -15,9 +15,9 @@ export default function GeneralWeatherCard({ weatherData }) {
 
   return (
     <div className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-xl shadow-md p-6 w-full max-w-xl mx-auto">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center relative after:content-[''] after:block after:w-16 after:h-[2px] after:bg-gray-400 after:mx-auto after:mt-2">
+{/*       <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center relative after:content-[''] after:block after:w-16 after:h-[2px] after:bg-gray-400 after:mx-auto after:mt-2">
         Meteo Attuale
-      </h2>
+      </h2> */}
 
       {/* Icona principale + descrizione */}
       <div className="flex flex-col items-center mb-4 text-center">
@@ -27,46 +27,6 @@ export default function GeneralWeatherCard({ weatherData }) {
 
       {/* Dati meteo */}
       <div className="flex flex-wrap gap-3">
-
-        {/* Temperatura */}
-        <div className="flex w-full max-[544px]:flex-nowrap justify-between items-center">
-          <span className="w-1/2 max-[544px]:w-2/3 text-sm sm:text-base">
-            Temperatura
-          </span>
-          <span className="w-1/2 max-[544px]:w-1/3 text-sm sm:text-base text-right">
-            {current.temperature_2m ?? "-"}°C
-          </span>
-        </div>
-
-        {/* Temperatura percepita */}
-        <div className="flex w-full max-[544px]:flex-nowrap justify-between items-center">
-          <span className="w-1/2 max-[544px]:w-2/3 text-sm sm:text-base">
-            Temperatura percepita
-          </span>
-          <span className="w-1/2 max-[544px]:w-1/3 text-sm sm:text-base text-right">
-            {current.apparent_temperature ?? "-"}°C
-          </span>
-        </div>
-
-        {/* Umidità */}
-        <div className="flex w-full max-[544px]:flex-nowrap justify-between items-center">
-          <span className="w-1/2 max-[544px]:w-2/3 text-sm sm:text-base">
-            Umidità
-          </span>
-          <span className="w-1/2 max-[544px]:w-1/3 text-sm sm:text-base text-right">
-            {current.relative_humidity_2m ?? "-"}%
-          </span>
-        </div>
-
-        {/* Vento */}
-        <div className="flex w-full max-[544px]:flex-nowrap justify-between items-center">
-          <span className="w-1/2 max-[544px]:w-2/3 text-sm sm:text-base">
-            Vento
-          </span>
-          <span className="w-1/2 max-[544px]:w-1/3 text-sm sm:text-base text-right">
-            {current.wind_speed_10m ?? "-"} km/h
-          </span>
-        </div>
 
         {/* Alba */}
         <div className="flex w-full max-[544px]:flex-nowrap justify-between items-center">
@@ -95,7 +55,7 @@ export default function GeneralWeatherCard({ weatherData }) {
         {/* Temp max */}
         <div className="flex w-full max-[544px]:flex-nowrap justify-between items-center">
           <span className="w-1/2 max-[544px]:w-2/3 text-sm sm:text-base">
-            Temp. max
+            Temp. max prevista
           </span>
           <span className="w-1/2 max-[544px]:w-1/3 text-sm sm:text-base text-right">
             {daily?.temperature_2m_max?.[0] ?? "-"}°C {" "}
@@ -106,7 +66,7 @@ export default function GeneralWeatherCard({ weatherData }) {
         {/* Temp min */}
         <div className="flex w-full max-[544px]:flex-nowrap justify-between items-center">
           <span className="w-1/2 max-[544px]:w-2/3 text-sm sm:text-base">
-            Temp. min
+            Temp. min prevista
           </span>
           <span className="w-1/2 max-[544px]:w-1/3 text-sm sm:text-base text-right">
 
