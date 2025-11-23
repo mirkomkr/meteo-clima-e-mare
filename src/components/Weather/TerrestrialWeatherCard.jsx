@@ -4,7 +4,6 @@ import { degreesToCardinal } from "../../Utils/direction";
 export default function TerrestrialWeatherCard({ terrestrialData }) {
   if (!terrestrialData) return null;
 
-  // Rimuoviamo l'accesso a 'daily' perché non lo usiamo più in questa scheda
   const { current } = terrestrialData;
 
   // Calcola la visibilità in km
@@ -49,7 +48,36 @@ export default function TerrestrialWeatherCard({ terrestrialData }) {
           </span>
         </div>
 
-        {/* Vento e Umidità (Dati Attuali) */}
+        {/* Precipitazione attuale (Ultima ora) */}
+        <div className="flex justify-between items-center">
+          <span>Precipitazione (attuale)</span>
+          <span>{(current.precipitation ?? 0)} mm/h</span>
+        </div>
+
+        {/* Umidità */}
+        <div className="flex justify-between items-center">
+          <span>Umidità Relativa</span>
+          <span>{current.relative_humidity_2m ?? "-"}%</span>
+        </div>
+
+        {/* --- DATI PRESSIONE --- */}
+
+        {/* Pressione Superficiale (Cruciale per Altitudine) */}
+        <div className="flex justify-between items-center">
+          <span>Pressione Superficiale</span>
+          {/* Valore all'altitudine del luogo */}
+          <span>{current.surface_pressure ?? "-"} hPa</span> 
+        </div>
+        
+        {/* Pressione Atmosferica (MSL) (Cruciale per Previsioni) */}
+        <div className="flex justify-between items-center">
+          <span>Pressione Atmosferica (MSL)</span>
+          {/* Valore ridotto al livello del mare */}
+          <span>{current.pressure_msl ?? "-"} hPa</span> 
+        </div>
+
+        {/* --- DATI VENTO --- */}
+
         <div className="flex justify-between items-center">
           <span>Velocità vento</span>
           <span>{current.wind_speed_10m ?? "-"} km/h</span>
@@ -68,15 +96,7 @@ export default function TerrestrialWeatherCard({ terrestrialData }) {
           <span>{current.wind_gusts_10m ?? "-"} km/h</span>
         </div>
 
-        <div className="flex justify-between items-center">
-          <span>Umidità</span>
-          <span>{current.relative_humidity_2m ?? "-"}%</span>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <span>Pressione Atmosferica (MSL)</span> 
-          <span>{current.surface_pressure ?? "-"} hPa</span>
-        </div>
+        {/* --- ALTRI DATI --- */}
 
         <div className="flex justify-between items-center">
           <span>Visibilità</span>

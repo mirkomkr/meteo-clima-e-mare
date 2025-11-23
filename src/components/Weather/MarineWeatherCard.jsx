@@ -8,16 +8,16 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
   const current = marineData.current;
 
   // 🌊 Dati mare
-  const waveHeight = current.wave_height ?? "-";
-  const waveDir = current.wave_direction ?? "-";
-  const wavePeriod = current.wave_period ?? "-";
-  const swellHeight = current.swell_wave_height ?? "-";
-  const swellDir = current.swell_wave_direction ?? "-";
-  const swellPeriod = current.swell_wave_period ?? "-";
-  const swellPeak = current.swell_wave_peak_period ?? "-";
-  const seaTemp = current.sea_surface_temperature ?? "-";
-  const seaLevel = current.sea_level_height_msl ?? "-";
-  const windWavePeak = current.wind_wave_peak_period ?? "-";
+  const waveHeight = current.wave_height ?? 0;
+  const waveDir = current.wave_direction ?? 0;
+  const wavePeriod = current.wave_period ?? 0;
+  const swellHeight = current.swell_wave_height ?? 0;
+  const swellDir = current.swell_wave_direction ?? 0;
+  const swellPeriod = current.swell_wave_period ?? 0;
+  const swellPeak = current.swell_wave_peak_period ?? 0;
+  const seaTemp = current.sea_surface_temperature ?? 0;
+  const seaLevel = current.sea_level_height_msl ?? 0;
+  const windWavePeak = current.wind_wave_peak_period ?? 0;
 
   // 💨 Vento terrestre
   const windSpeedTerrestrial = terrestrialData?.current?.wind_speed_10m ?? null;
@@ -34,7 +34,7 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
       ? `${windGustTerrestrial} km/h (${kmhToKnots(windGustTerrestrial)} kn)`
       : "-";
 
-  return (
+return (
     <div className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-xl shadow-md p-6 w-full max-w-md mx-auto">
       <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center relative after:content-[''] after:block after:w-16 after:h-[2px] after:bg-gray-400 after:mx-auto after:mt-2">
         Meteo Marino
@@ -58,40 +58,41 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
           <span>{gustDisplay}</span>
         </div>
         
-        {/* --- DATI ONDE DI VENTO --- */}
+        {/* --- DATI ONDE LOCALI (CHOP) --- */}
         <div className="flex justify-between items-center">
-          <span>Altezza Onde di Vento</span>
+          <span>Altezza Onde</span>
           <span>{waveHeight} m</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Direzione Onde di Vento</span>
+          <span>Direzione Onde</span>
           <span>{waveDir}° ({degreesToCardinal(waveDir)})</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Periodo Onde di Vento</span>
+          <span>Periodo Onde</span>
           <span>{wavePeriod} s</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Picco Periodo Onde di Vento</span>
+          {/* Termine più comune per Periodo Dominante */}
+          <span>Periodo di Picco Onde</span> 
           <span>{windWavePeak} s</span>
         </div>
 
 
-        {/* --- DATI ONDA LUNGA (SWELL) --- */}
+        {/* --- DATI SWELL (ONDA LUNGA) --- */}
         <div className="flex justify-between items-center">
-          <span>Altezza Onda Lunga</span>
+          <span>Altezza Swell</span>
           <span>{swellHeight} m</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Direzione Onda Lunga</span>
+          <span>Direzione Swell</span>
           <span>{swellDir}° ({degreesToCardinal(swellDir)})</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Periodo Onda Lunga</span>
+          <span>Periodo Swell</span>
           <span>{swellPeriod} s</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Picco Periodo Onda Lunga</span>
+          <span>Periodo di Picco Swell</span>
           <span>{swellPeak} s</span>
         </div>
 
