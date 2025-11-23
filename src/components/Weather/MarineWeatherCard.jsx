@@ -42,10 +42,9 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
 
       <div className="flex flex-col gap-3 text-sm text-gray-700">
 
-        {/* Vento terrestre */}
+        {/* --- DATI VENTO (DA TERRA) --- */}
         <div className="flex justify-between items-center">
           <span>Velocità vento</span>
-          {/* Valore aggiornato */}
           <span>{windDisplay}</span>
         </div>
         <div className="flex justify-between items-center">
@@ -56,55 +55,56 @@ export default function MarineWeatherCard({ marineData, terrestrialData }) {
         </div>
         <div className="flex justify-between items-center">
           <span>Raffica vento</span>
-          {/* Valore aggiornato */}
           <span>{gustDisplay}</span>
         </div>
-
-        {/* Onde */}
+        
+        {/* --- DATI ONDE DI VENTO --- */}
         <div className="flex justify-between items-center">
-          <span>Altezza onde</span>
+          <span>Altezza Onde di Vento</span>
           <span>{waveHeight} m</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Direzione onde</span>
+          <span>Direzione Onde di Vento</span>
           <span>{waveDir}° ({degreesToCardinal(waveDir)})</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Periodo onde</span>
+          <span>Periodo Onde di Vento</span>
           <span>{wavePeriod} s</span>
         </div>
-
-        {/* Swell */}
         <div className="flex justify-between items-center">
-          <span>Altezza swell</span>
+          <span>Picco Periodo Onde di Vento</span>
+          <span>{windWavePeak} s</span>
+        </div>
+
+
+        {/* --- DATI ONDA LUNGA (SWELL) --- */}
+        <div className="flex justify-between items-center">
+          <span>Altezza Onda Lunga</span>
           <span>{swellHeight} m</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Direzione swell</span>
+          <span>Direzione Onda Lunga</span>
           <span>{swellDir}° ({degreesToCardinal(swellDir)})</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Periodo swell</span>
+          <span>Periodo Onda Lunga</span>
           <span>{swellPeriod} s</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Picco swell</span>
+          <span>Picco Periodo Onda Lunga</span>
           <span>{swellPeak} s</span>
         </div>
 
-        {/* Acqua e maree */}
+        {/* --- DATI ACQUA E LIVELLI --- */}
         <div className="flex justify-between items-center">
           <span>Temperatura mare</span>
           <span>{seaTemp} °C</span>
         </div>
         <div className="flex justify-between items-center">
-          <span>Livello mare</span>
+          <span>Livello mare (MSL)</span>
           <span>{seaLevel} m</span>
         </div>
-        <div className="flex justify-between items-center">
-          <span>Periodo onde di vento</span>
-          <span>{windWavePeak} s</span>
-        </div>
+        
       </div>
 
       <p className="mt-4 text-xs text-gray-600 italic text-center">

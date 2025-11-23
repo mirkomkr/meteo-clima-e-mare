@@ -1,18 +1,11 @@
 import React from "react";
 import { degreesToCardinal } from "../../Utils/direction";
 
-/* const formatTime = (isoString) => {
-  if (!isoString) return "-";
-  const date = new Date(isoString);
-  const hours = date.getHours().toString().padStart(2, "0");
-  const minutes = date.getMinutes().toString().padStart(2, "0");
-  return `${hours}:${minutes}`;
-}; */
-
 export default function TerrestrialWeatherCard({ terrestrialData }) {
   if (!terrestrialData) return null;
 
-  const { current, daily } = terrestrialData;
+  // Rimuoviamo l'accesso a 'daily' perché non lo usiamo più in questa scheda
+  const { current } = terrestrialData;
 
   // Calcola la visibilità in km
   let visibilityKm = "-";
@@ -56,6 +49,7 @@ export default function TerrestrialWeatherCard({ terrestrialData }) {
           </span>
         </div>
 
+        {/* Vento e Umidità (Dati Attuali) */}
         <div className="flex justify-between items-center">
           <span>Velocità vento</span>
           <span>{current.wind_speed_10m ?? "-"} km/h</span>
@@ -79,9 +73,13 @@ export default function TerrestrialWeatherCard({ terrestrialData }) {
           <span>{current.relative_humidity_2m ?? "-"}%</span>
         </div>
 
-<div className="flex justify-between items-center">
+        <div className="flex justify-between items-center">
+          <span>Pressione Atmosferica (MSL)</span> 
+          <span>{current.surface_pressure ?? "-"} hPa</span>
+        </div>
+
+        <div className="flex justify-between items-center">
           <span>Visibilità</span>
-          {/* Usa la nuova variabile formattata */}
           <span>{visibilityKm}</span>
         </div>
 
@@ -93,21 +91,6 @@ export default function TerrestrialWeatherCard({ terrestrialData }) {
         <div className="flex justify-between items-center">
           <span>Nuvolosità</span>
           <span>{current.cloud_cover ?? "-"}%</span>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <span>Pioggia</span>
-          <span>{daily?.precipitation_sum?.[0] ?? "-"} mm</span>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <span>Neve</span>
-          <span>{daily?.snowfall_sum?.[0] ?? "-"} mm</span>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <span>Probabilità pioggia</span>
-          <span>{daily?.precipitation_probability_max?.[0] ?? "-"}%</span>
         </div>
       </div>
     </div>
