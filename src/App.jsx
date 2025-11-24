@@ -5,7 +5,7 @@ import WeatherError from "./components/UI/WeatherError";
 import WeatherDashboard from "./components/WeatherDashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import useWeather from "./hooks/useWeather";
 import useLocationSearch from "./hooks/useLocationSearch";
 
@@ -106,7 +106,7 @@ export default function App() {
             )}
         </div>
       </main>
-
+      <SpeedInsights />
       {/* FOOTER */}
       <footer className="w-full py-6 sm:py-8 px-4 sm:px-6 md:px-8 mt-auto">
         <Footer />
