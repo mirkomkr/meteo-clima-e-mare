@@ -70,3 +70,8 @@ npm run preview
 Il progetto è pensato come portfolio personale, quindi alcune ottimizzazioni e miglioramenti UI/UX possono essere aggiunti in futuro.
 
 Tutti i dati sono forniti dalle API di Open-Meteo.
+
+## ✍️ Author
+* **Mirko Passeri**
+    * [GitHub](https://github.com/mirkomkr)
+    * [LinkedIn](https://www.linkedin.com/in/mirko-passeri/)
